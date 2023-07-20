@@ -54,7 +54,7 @@ app.get('/getAllUser', async (req, res) => {
 });
 
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static("datastore/build/"))
+  app.use(express.static("storedata/build"))
 }
 
 // app.get('/alluserdata', async (req, res) => {
