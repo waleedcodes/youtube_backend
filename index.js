@@ -32,38 +32,29 @@ const middleware = (req, res) => {
 //   res.send(`This is a contact page `);
 //   console.log("This is a contact page");
 // });
-app.get("/signin", (req, res) => {
-  res.send(`This is a signin page `);
-  console.log("This is a signin page");
-});
-app.get("/signup", (req, res) => {
-  res.send(`This is a signup page `);
-});
 
 app.listen(PORT, () => {
   console.log(`This is waleed ${PORT}`);
 });
 
-app.get('/getAllUser', async (req, res) => {
-  try {
-    const allUser = await User.find({});
-    res.send({ status: "ok", data: allUser })
-  } catch (err) {
-    console.log(err)
-  }
-});
 
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("storedata/build"))
-}
-
-// app.get('/alluserdata', async (req, res) => {
-
+// app.get('/getAllUser', async (req, res) => {
 //   try {
-//     const datasend = await User.find({});
-//     res.send({ status: "ok", data: datasend });
+//     const allUser = await User.find({});
+//     res.send({ status: "ok", data: allUser })
 //   } catch (err) {
 //     console.log(err)
 //   }
+// });
 
-// })
+
+
+
+app.get("/getAllData", async (req, res) => {
+  try {
+    const AllData = await User.find({});
+    res.send({ status: "ok", data: AllData });
+  } catch (err) {
+    console.log(err)
+  }
+})
